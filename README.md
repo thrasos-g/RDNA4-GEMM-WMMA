@@ -16,11 +16,11 @@ A second file (`mmmTensor.cpp`) applies the most optimized kernel to a **5 dimen
 
 | Requirement | Details |
 |---|---|
-| GPU | AMD RDNA 4 (gfx12xx) — e.g. Radeon RX 9070 / 9070 XT |
+| GPU | AMD RDNA 4 (gfx12xx) — e.g. Radeon RX 9070 / 9070 XT etc. |
 | ROCm | Tested with ROCm 7.1; requires `hipcc` and `hip_fp16.h` |
 | rocBLAS | Included in ROCm; used for correctness validation and reference timing |
 | OS | Windows (compile script is `.bat`); Linux adaptation is straightforward |
-| Compiler flags | `-O3 --offload-arch=gfx1201 -mcumode -lrocblas` |
+| Compiler flags | `-O3 --offload-arch=native -mcumode -lrocblas` |
 
 > **Note:** The WMMA intrinsic `__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12` is gfx12xx-specific and will not compile for older RDNA generations.
 
